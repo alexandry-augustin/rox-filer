@@ -484,7 +484,7 @@ void abox_add_filename(ABox *abox, const gchar *path)
 
 	dir = g_path_get_dirname(path);
 	gtk_list_store_set(GTK_LIST_STORE(model), &iter,
-			   0, g_basename(path),
+			   0, g_path_get_basename(path),
 			   1, dir, -1);
 	g_free(dir);
 }

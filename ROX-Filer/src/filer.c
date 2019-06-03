@@ -1297,7 +1297,7 @@ void change_to_parent(FilerWindow *filer_window)
 				g_strdup(filer_window->real_path));
 	
 	dir = g_path_get_dirname(current);
-	filer_change_to(filer_window, dir, g_basename(current));
+	filer_change_to(filer_window, dir, g_path_get_basename(current));
 	g_free(dir);
 }
 

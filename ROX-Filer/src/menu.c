@@ -1124,7 +1124,7 @@ static void savebox_show(const gchar *action, const gchar *path,
 	{
 		gchar *u8, *dir;
 		dir = g_path_get_dirname(path);
-		u8 = to_utf8(g_basename(path));
+		u8 = to_utf8(g_path_get_basename(path));
 		gtk_savebox_set_pathname(GTK_SAVEBOX(savebox),
 				make_path(dir, u8));
 		g_free(u8);
@@ -1416,7 +1416,7 @@ static gboolean new_file_type_cb(GObject *savebox,
 	GList *paths;
 
 	/* We can work out the template path from the initial name */
-	oleaf = g_basename(initial);
+	oleaf = g_path_get_basename(initial);
 	templ_dname = choices_find_xdg_path_load("Templates", "", SITE);
 	if (!templ_dname)
 	{
@@ -1432,7 +1432,7 @@ static gboolean new_file_type_cb(GObject *savebox,
 	g_free(templ);
 
 	dest = g_path_get_dirname(path);
-	leaf = g_basename(path);
+	leaf = g_path_get_basename(path);
 	paths = g_list_append(NULL, rtempl);
 
 	action_copy(paths, dest, leaf, TRUE);
@@ -1461,7 +1461,7 @@ static void new_file_type(gchar *templ)
 
 	g_return_if_fail(window_with_focus != NULL);
 	
-	leaf = g_basename(templ);
+	leaf = g_path_get_basename(templ);
 	type = type_get_type(templ);
 
 	savebox_show(_("Create"),

@@ -390,7 +390,7 @@ button_press_over_icon (GtkWidget *drag_box, GdkEventButton *event,
 
   uri = gtk_entry_get_text (GTK_ENTRY (savebox->entry));
   if (uri && *uri)
-    leafname = g_basename (uri);
+    leafname = g_path_get_basename (uri);
   else
     leafname = _("Unnamed");
   

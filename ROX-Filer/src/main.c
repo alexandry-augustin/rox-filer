@@ -438,7 +438,7 @@ int main(int argc, char **argv)
 
 				soap_add(body, "Show",
 					"Directory", dir ? dir : tmp,
-					"Leafname", g_basename(VALUE));
+					"Leafname", g_path_get_basename(VALUE));
 				g_free(tmp);
 				g_free(dir);
 				break;

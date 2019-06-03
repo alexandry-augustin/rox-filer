@@ -465,7 +465,7 @@ void icon_set_path(Icon *icon, const char *pathname, const char *name)
 		icon_hash_path(icon);
 
 		if (!name)
-			name = g_basename(icon->src_path);
+			name = g_path_get_basename(icon->src_path);
 
 		icon->item = diritem_new(name);
 		diritem_restat(icon->path, icon->item, NULL);

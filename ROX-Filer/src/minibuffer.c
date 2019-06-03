@@ -310,7 +310,7 @@ static void path_return_pressed(FilerWindow *filer_window, GdkEventKey *event)
 	DirItem		*item;
 
 	path = gtk_entry_get_text(GTK_ENTRY(filer_window->minibuffer));
-	pattern = g_basename(path);
+	pattern = g_path_get_basename(path);
 
 	view_get_cursor(filer_window->view, &iter);
 
@@ -505,7 +505,7 @@ static void path_changed(FilerWindow *filer_window)
 	}
 		
 
-	leaf = g_basename(new);
+	leaf = g_path_get_basename(new);
 	if (leaf == new)
 		path = g_strdup("/");
 	else
@@ -627,7 +627,7 @@ static void search_in_dir(FilerWindow *filer_window, int dir)
 	ViewIter iter;
 
 	path = gtk_entry_get_text(GTK_ENTRY(filer_window->minibuffer));
-	pattern = g_basename(path);
+	pattern = g_path_get_basename(path);
 	
 	view_get_cursor(filer_window->view, &iter);
 	view_set_base(filer_window->view, &iter);

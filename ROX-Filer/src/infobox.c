@@ -214,7 +214,7 @@ static GtkWidget *make_vbox(const guchar *path, GObject *window)
 
 	g_return_val_if_fail(path[0] == '/', NULL);
 	
-	item = diritem_new(g_basename(path));
+	item = diritem_new(g_path_get_basename(path));
 	diritem_restat(path, item, NULL);
 
 	ai = appinfo_get(path, item);
@@ -837,7 +837,7 @@ static GtkWidget *make_file_says(const guchar *path)
 #ifdef FILE_B_FLAG
 			argv[2] = (char *) path;
 #else
-			argv[1] = (char *) g_basename(path);
+			argv[1] = (char *) g_path_get_basename(path);
 			chdir(g_path_get_dirname(path));
 #endif
 			if (execvp(argv[0], argv))

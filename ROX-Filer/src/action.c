@@ -957,7 +957,7 @@ static void do_delete(const char *src_path, const char *unused)
 	else
 	{
 		send_check_path(safe_path);
-		if (strcmp(g_basename(safe_path), ".DirIcon") == 0)
+		if (strcmp(g_path_get_basename(safe_path), ".DirIcon") == 0)
 		{
 			gchar *dir;
 			dir = g_path_get_dirname(safe_path);
@@ -1060,7 +1060,7 @@ static void do_find(const char *path, const char *unused)
 	info.fullpath = path;
 	time(&info.now);	/* XXX: Not for each check! */
 
-	info.leaf = g_basename(path);
+	info.leaf = g_path_get_basename(path);
 	info.prune = FALSE;
 	if (find_test_condition(find_condition, &info))
 		printf_send("=%s", path);
@@ -1708,7 +1708,7 @@ static void usage_cb(gpointer data)
 		do_usage(path, NULL);
 
 		printf_send("'%s: %s\n",
-			    g_basename(path),
+			    g_path_get_basename(path),
 			    format_double_size(size_tally));
 		total_size += size_tally;
 	}
@@ -1886,7 +1886,7 @@ static void chmod_cb(gpointer data)
 			send_error();
 		else if (S_ISLNK(info.st_mode))
 			printf_send(_("!'%s' is a symbolic link\n"),
-				    g_basename(path));
+				    g_path_get_basename(path));
 		else
 			do_chmod(path, NULL);
 	}
@@ -1917,7 +1917,7 @@ static void settype_cb(gpointer data)
 			send_error();
 		else if (S_ISLNK(info.st_mode))
 			printf_send(_("!'%s' is a symbolic link\n"),
-				    g_basename(path));
+				    g_path_get_basename(path));
 		else
 			do_settype(path, NULL);
 	}
