@@ -3,7 +3,16 @@ ROX-Filer
 A RISC OS-like filer for X
 by Thomas Leonard
 
+Dependencies
+---
+`sudo apt-get install autoconf pkg-config`
 
+
+Compilation
+------------------
+
+1. in `./ROX-Filer/src` run `autoconf` to generate the `configure` file
+2. 
 
 Quick start
 -----------
