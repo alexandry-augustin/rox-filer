@@ -5,7 +5,7 @@ by Thomas Leonard
 
 Dependencies
 ---
-`sudo apt-get install autoconf pkg-config`
+`sudo apt-get install autoconf pkg-config libsm-dev gtk+2.0 libxml2-dev`
 
 
 Compilation
