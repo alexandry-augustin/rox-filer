@@ -6,7 +6,9 @@ by Thomas Leonard
 Dependencies
 ---
 `sudo apt-get install autoconf pkg-config libsm-dev gtk+2.0 libxml2-dev`
+`sudo dnf install autoconf automake libSM-devel.x86_64 gtk2-devel libxml2-devel`
 
+libsm-dev: X11 Session Management library (development headers)
 
 Compilation
 ------------------
